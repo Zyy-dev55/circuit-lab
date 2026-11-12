@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>操作流程 · 电工电路仿真调试平台（网吧便携版）</title>
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--line:#dde4ee;--ink:#1f2937;--sub:#64748b;--blue:#1d4ed8;--blue2:#eff4ff;--amber:#b45309;--amber2:#fffbeb;--red:#b91c1c;--red2:#fef2f2;--green:#047857;--green2:#ecfdf5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.75 "Segoe UI","Microsoft YaHei",system-ui,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:28px 20px 60px}
+.hero{background:linear-gradient(135deg,#1d4ed8,#0e7490);color:#fff;border-radius:14px;padding:26px 28px;margin-bottom:22px}
+.hero h1{margin:0 0 6px;font-size:24px}
+.hero p{margin:0;opacity:.92;font-size:14px}
+.hero .tags{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.hero .tags span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:3px 12px;font-size:12px}
+section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin-bottom:16px}
+h2{font-size:18px;margin:0 0 6px;color:var(--blue);display:flex;align-items:center;gap:9px}
+h2 .n{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--blue2);color:var(--blue);font-size:13px;flex:none}
+.lead{color:var(--sub);font-size:13px;margin:0 0 16px}
+h3{font-size:14px;margin:16px 0 6px}
+p{margin:8px 0}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f8fafc;color:#334155;font-weight:600}
+td:first-child{white-space:nowrap;font-weight:600;color:#334155}
+ol,ul{margin:8px 0;padding-left:22px}
+li{margin:5px 0}
+code{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:4px;padding:1px 5px;font:12px Consolas,Monaco,monospace;color:#0f172a}
+.btn{display:inline-block;background:var(--blue2);border:1px solid #c7d7fe;color:var(--blue);border-radius:5px;padding:1px 7px;font-size:12px;font-weight:600;margin:0 2px}
+.box{border-radius:9px;padding:12px 16px;margin:12px 0;font-size:13px}
+.warn{background:var(--amber2);border:1px solid #fde68a;color:#78350f}
+.danger{background:var(--red2);border:1px solid #fecaca;color:#7f1d1d}
+.tip{background:var(--green2);border:1px solid #a7f3d0;color:#065f46}
+.steps{counter-reset:s;list-style:none;padding:0;margin:12px 0}
+.steps li{counter-increment:s;position:relative;padding:8px 0 8px 42px;border-bottom:1px dashed #e8edf5}
+.steps li:last-child{border-bottom:none}
+.steps li::before{content:counter(s);position:absolute;left:0;top:9px;width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:12px}
+.mini{border:1px solid var(--line);border-radius:9px;padding:12px 14px;background:#fbfcfe}
+.mini b{display:block;color:var(--blue);margin-bottom:4px;font-size:13px}
+.mini span{font-size:12.5px;color:#475569}
+footer{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+@media print{body{background:#fff}section,.hero{break-inside:avoid;box-shadow:none}.wrap{max-width:none;padding:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hero">
+  <h1>⚡ 电工电路仿真调试平台 · 操作流程</h1>
+  <p>网吧 / 公共电脑便携版 —— 一个 HTML 文件就是完整平台，不安装、不联网、不写注册表，上传或拷贝后双击即用。</p>
+  <div class="tags"><span>单文件约 100 KB</span><span>零外部依赖</span><span>断网可用</span><span>Chrome / Edge 打开</span><span>作品可带回</span></div>
+</div>
+
+<section>
+  <h2><span class="n">1</span>怎么把平台带进网吧（自己上传，选一种）</h2>
+  <p class="lead">先想清楚一件事：<b>只需要一个 HTML 文件就能跑</b>，其余文件是说明和样例，可传可不传。</p>
+  <table>
+    <tr><th>方式</th><th>怎么做</th><th>适合</th></tr>
+    <tr><td>A · 只传一个文件<br>（最省事）</td><td>把 <code>电工电路仿真平台.html</code> 发到微信「文件传输助手」/ QQ / 网盘，到网吧下载后双击打开。</td><td>没 U 盘、网吧禁用外设、临时用一次</td></tr>
+    <tr><td>B · U 盘</td><td>把整个文件夹（或只那个 HTML）拷进 U 盘，插到网吧机器上双击。</td><td>有 U 盘、机器允许读 USB</td></tr>
+    <tr><td>C · 网盘</td><td>上传 <code>circuit-lab-portable.zip</code> 到百度网盘 / 阿里云盘 / OneDrive，网吧登录后下载解压。</td><td>想连说明书一起带走</td></tr>
+    <tr><td>D · 做成网址<br>（推荐长期用）</td><td>把 <code>index.html</code> 传到 GitHub Pages 或任意静态空间根目录，得到一个网址，网吧任何机器输网址即可，<b>以后再也不用传文件</b>。</td><td>反复去、多台机器、想发给同学</td></tr>
+  </table>
+  <div class="box tip"><b>D 方式具体步骤（GitHub Pages 举例）：</b><br>
+    ① 新建一个公开仓库（名字随意，如 <code>circuit-lab</code>）→ ② 上传 <code>index.html</code>，<b>文件名必须叫 index.html，且放在仓库根目录</b> → ③ 仓库 Settings → Pages → Source 选 <code>main</code> / <code>root</code> → Save → ④ 等 1～2 分钟，打开 <code>https://你的用户名.github.io/仓库名/</code>。<br>
+    加载一次之后即使断网，平台依然能运行（页面不含任何外部资源）。</div>
+  <div class="box warn"><b>上传清单：</b>最小＝只传 <code>电工电路仿真平台.html</code>；完整＝整个文件夹 6 个文件；建站＝只传 <code>index.html</code>。两个 HTML 内容完全相同，只是名字不同（<code>index.html</code> 是给网站自动识别首页用的）。</div>
+</section>
+
+<section>
+  <h2><span class="n">2</span>网吧开机后怎么打开</h2>
+  <ol class="steps">
+    <li>把文件下载/解压到桌面或 D 盘（别放在「下载」里，有些网吧会定期清空）。</li>
+    <li><b>双击 HTML 文件。</b>如果默认用 IE 打开导致空白或报错：右键 →「打开方式」→ 选 <b>Chrome 或 Edge</b>；360/搜狗浏览器要切到「极速模式」。<span class="box danger" style="display:block;margin-top:6px">IE 不支持，必须用 Chrome / Edge 内核。这是最常见的打不开原因。</span></li>
+    <li>按 <code>F11</code> 全屏、<code>Ctrl + 0</code> 把网页缩放恢复到 100%（缩放不是 100% 会导致点击位置偏移）。</li>
+    <li>看到左侧元件库、中间画布、顶部六个项目按钮、右侧诊断面板 → 启动成功。顶部黄色提示条点「知道了」关掉即可。</li>
+    <li>窗口太挤就点 <span class="btn">⛶ 适配视图</span>，画布会自动缩放居中。</li>
+  </ol>
+</section>
+
+<section>
+  <h2><span class="n">3</span>五分钟上手：先跑示例（以项目一为例）</h2>
+  <ol class="steps">
+    <li>点顶部项目栏的 <span class="btn">项目一</span>，右侧「📖 电路原理与操作说明」会讲这张图的原理。</li>
+    <li><b>按住画布上的 SB1 启动按钮</b>（鼠标按下不放）→ KM 接触器吸合 → 电机正转；松开按钮后靠 KM 常开辅助触点<b>自锁</b>继续运行。</li>
+    <li>按住 <b>SB3 停止按钮</b> → 控制回路断开 → KM 释放 → 电机停转。</li>
+    <li>选中 <b>FR 热继电器</b>，在右侧「🧰 元件属性」勾选「动作跳闸」→ 再按启动按钮无效；看「🔍 故障诊断」和「🧭 分层排障 L1→L4」给出的原因和下一步建议。</li>
+    <li>取消勾选复位，重新按 SB1 → 恢复正常。这就是一次完整的「注入故障 → 分层定位 → 排除 → 复测」。</li>
+  </ol>
+  <div class="grid">
+    <div class="mini"><b>项目一 / 二</b><span>电机单向运转、正反转互锁（主触点粘连会报相间短路）</span></div>
+    <div class="mini"><b>项目三 / 四</b><span>单相计量照明、考场配电板（闸刀+浪涌+漏电+空开+零排地排）</span></div>
+    <div class="mini"><b>项目五 / 六</b><span>两地控制一盏灯、两台电机顺序启动</span></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">4</span>自己搭电路（eNSP 式连线）</h2>
+  <ol class="steps">
+    <li>点 <span class="btn">🗑 清空</span> 得到空白画布；在左侧元件库<b>单击分类里的元件</b>即可添加到画布，拖住元件本体可移动。</li>
+    <li>顶部「连线」工具选线型：<span class="btn">🔴 火线</span> <span class="btn">🔵 零线</span> <span class="btn">🟢 地线</span>（或「自动」），再选规格 1.5 / 2.5 / 4 / 6 mm²。<b>火零地必须分开选，不能混。</b></li>
+    <li><b>单击起始端子圆点 → 单击目标端子圆点</b>完成连线；目标端口自动成为下一次的起点，可以连续连。按 <code>Esc</code> 退出连线模式。</li>
+    <li>连线模式下：拖元件本体＝移动元件，拖空白处＝平移画布，滚轮＝缩放，三者互不干扰。</li>
+    <li><b>单击导线</b>可在右侧改类别/规格，或按 <code>Delete</code> / 点「删除该导线」；<b>双击开关</b>切换通断；<b>按住按钮</b>＝按下。</li>
+    <li>右侧实时给出仿真状态、故障诊断、分层排障结论；带电导线按相色显示，悬停端子或导线可看电位。</li>
+  </ol>
+  <div class="box warn"><b>线色规范会被检查：</b>把火线错标成零线/地线，诊断面板会报「布线错误，外壳带电，严重触电隐患」；零线错标火线会给黄色警告。选错线型连出来的线一眼就能看出来。</div>
+</section>
+
+<section>
+  <h2><span class="n">5</span>作品怎么带回（网吧最关键的一节）</h2>
+  <div class="box danger"><b>⚠ 网吧普遍有还原卡 / 无盘系统，关机或换机后本机数据全部清空。</b>顶部「💾 保存项目」只存在这台机器的浏览器里，<b>绝不能当唯一备份</b>。离开前一定做完下面任一步。</div>
+  <table>
+    <tr><th>通道</th><th>操作</th><th>什么时候用</th></tr>
+    <tr><td>① 导出文件<br><span class="btn">⤓ 导出</span></td><td>下载得到 <code>circuit-20261112-085530.json</code> 这类带时间戳的文件（不会互相覆盖），存到网盘 / 微信 / U 盘。</td><td>网吧允许下载时，首选</td></tr>
+    <tr><td>② 文本备份<br><span class="btn">📋 文本备份</span></td><td>弹窗里点「复制全部」→ 粘贴到微信文件传输助手、网盘笔记或记事本保存。文本就是标准电路 JSON。</td><td><b>网吧禁止下载 / 找不到下载目录时，用这个</b>；导出被浏览器拦截时平台也会自动弹出这个窗</td></tr>
+    <tr><td>③ 保存项目<br><span class="btn">💾 保存项目</span></td><td>存到本机浏览器，项目栏出现绿色按钮，点一下就载入。</td><td>只在同一台机器、本次上机内临时用</td></tr>
+  </table>
+  <h3>下次怎么取回</h3>
+  <ul>
+    <li>点 <span class="btn">⤒ 导入</span> 选之前下载的 <code>.json</code> 文件；或</li>
+    <li>点 <span class="btn">📋 文本备份</span> → 把保存的文本粘贴回文本框 → 点「从文本还原」。</li>
+    <li>文件夹里的 <code>示例作品.json</code> 是导入格式的样例（考场配电板，15 个元件 / 27 根导线），可以先拿它练一次导入。</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">6</span>常见问题</h2>
+  <table>
+    <tr><th>现象</th><th>处理</th></tr>
+    <tr><td>打开空白 / 一堆报错 / 中文乱码</td><td>用 Chrome 或 Edge 打开；确认扩展名是 <code>.html</code> 而不是 <code>.html.txt</code>；别用 IE。</td></tr>
+    <tr><td>提示「文件来自网络，已被阻止」</td><td>右键文件 → 属性 → 勾选「解除锁定」→ 确定；或直接换 Chrome 打开。</td></tr>
+    <tr><td>元件拖不动</td><td>要拖在<b>元件本体</b>上，不要拖端子圆点（那是连线）；若还不行按 <code>Esc</code> 退出连线模式再拖。</td></tr>
+    <tr><td>导线删不掉</td><td>单击导线选中 → 右侧「删除该导线」或按 <code>Delete</code>。选中前先在画布空白处点一下，避免焦点留在输入框。</td></tr>
+    <tr><td>点击位置对不上端子</td><td><code>Ctrl + 0</code> 恢复 100% 缩放，再点 <span class="btn">⛶ 适配视图</span>。</td></tr>
+    <tr><td>下载被网吧管理软件拦截</td><td>改用 <span class="btn">📋 文本备份</span> 复制文本保存，不依赖下载权限。</td></tr>
+    <tr><td>重启后作品/保存的项目没了</td><td>正常，还原卡会清空本机数据。只能靠导出文件或文本备份带回，见第 5 节。</td></tr>
+    <tr><td>上传到网站后打开是 404</td><td>文件名必须是 <code>index.html</code>，并放在站点 / 仓库根目录；GitHub Pages 需等 1～2 分钟生效。</td></tr>
+    <tr><td>网页版能不能断网用</td><td>能。页面没有任何 CDN、字体或接口请求，加载完成后断网照常仿真。</td></tr>
+  </table>
+</section>
+
+<footer>电工电路仿真调试平台 · 网吧便携版 ｜ 单文件离线运行 ｜ 详细项目说明见「项目描述.md」，排障方法见工程包内 TROUBLESHOOTING.md</footer>
+</div>
+</body>
+</html>

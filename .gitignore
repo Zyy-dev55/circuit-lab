@@ -1,0 +1,17 @@
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 临时与调试产物
+tmp_check.js
+dbg*.js
+debug*.js
+*.log
+
+# 打包产物（zip 生成在仓库外层，不入库）
+*.zip
+
+# Node
+node_modules/
